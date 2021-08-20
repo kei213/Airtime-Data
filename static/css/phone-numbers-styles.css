@@ -1,0 +1,32 @@
+.heading-container {
+	display: flex;
+	flex-direction: row;
+
+	justify-content: left;
+	align-items: center;
+	margin-top: 1.2rem;
+	margin-bottom: 1.2rem;
+}
+
+.heading-text {
+	color:#91969c;
+	margin-left:0.7rem;	
+	font-size: 1.35rem;
+	font-weight: bold;
+
+	
+}
+
+.heading-icon {
+	margin-top: 0.3rem;
+	color:#91969c;
+}
+
+.list-name {
+	font-family: 'Montserrat', sans-serif;
+	color:#a3a7ac !important;
+}
+
+.list-icons {
+	color:#008387;
+}

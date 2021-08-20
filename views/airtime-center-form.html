@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv = "X-UA-Compatible" content = "ie=edge">
+
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+     <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">   
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet"> 
+
+    <title>Document</title> 
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-app.js"></script>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-firestore.js"></script>
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+         https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-analytics.js"></script> 
+
+    <link rel = "stylesheet" href = "css/main-styles.css"></link>     
+    <link rel = "stylesheet" href = "css/input-forms-styles.css"></link>   
+
+</head>
+
+<body>
+
+
+<div class = "container main-container">
+
+  <!--Navbar-->  
+  
+    <div class = "navbar-fixed navbar-main"> 
+        <a href = "index" class = "navbar-icon" id = "navHomeIcon"><i class = "material-icons">home</i></a> 
+        <a href = "search-page.html" class = "navbar-icon"><i class = "material-icons">search</i></a> 
+       
+        <a href = "table16.html" class = "navbar-icon"><i class = "material-icons">table_view</i></a>         
+        <a href = "" class = "navbar-icon"><i class = "material-icons">menu</i></a>  
+                      
+    </div>
+
+    <!--<div class = "navbar-links">
+        <ul>
+          <li><a href = "#">Home</a></li>
+          <li><a href = "#">add data</a></li>
+          <li><a href = "#">view records</a></li>
+        </ul> 
+      </div> 
+      
+  </div>-->
+ <!--end Navbar-->
+
+
+  <div class = "main-body" >  
+    <p class = "date-time" id = "date-display"></p>
+
+    <section class = "instruction-text-section"> 
+    <i class="instruction-text-icon material-icons">double_arrow</i> 	
+    <div class="instruction-text-text" >Enter today's Airtime Center, Round <span id = 'roundToBeDone'></span> amounts</div>
+    </section> 
+
+    <section class = "form-heading">
+        <div id = "" class = "heading-text">Airtime Center - Ema Re Je</div>         
+        <h6 class = "round-display-text">Round- <span id = 'roundToBeDoneFormOne'></span></h6>   
+    </section>
+
+    <form class="center-align offset-s1 " id = "form" autocomplete="off">
+      <div class="row row-input">
+        <div class="input-field " id = "inputField">
+          <input id="mascomNzamelaAc" type="number" class="input">
+          <label for="mascomNzamelaAc" id = "labelMnzAc" >Mascom Master ERJ</label>
+          <span class = "material-icons dropdown-trigger icon-input-field" data-target='dropdownOne'>expand_more</span>
+          <!--<span class="helper-text left-align" >Mascom Nzamela AC</span>-->
+        </div>
+        <!-- Dropdown Structure -->
+        <ul id='dropdownOne' class='dropdown-content'>
+          <li><a href="#!" id = "allZerosOne" >All Zero's</a></li>
+          
+        </ul>
+        <div class="input-field ">
+          <input id="orangeNzamelaAc" type="number" inputmode="numeric" class="input">
+          <label for="orangeNzamelaAc" id = "labelOnzAc" >Orange Master ERJ</label>
+          <!--<span class="helper-text left-align" >Orange Nzamela AC</span>-->         
+        </div>
+        <div class="input-field ">
+          <input id="btcNzamelaAc" type="number" class="input">
+          <label for="btcNzamelaAc" id = "labelBnzAc">Btc Master ERJ</label>
+          <!--<span class="helper-text left-align" >Btc Nzamela AC</span>-->
+        </div> 
+        <div class="input-field">
+          <input id="myzakaAc" type="number" class="input">
+          <label for="myzakaAc" id = "labelMzkAc">My Zaka ERJ</label>
+          <!--<span class="helper-text left-align" >Mascom MyZaka AC</span>-->
+        </div>
+        <div class="input-field">
+          <input id="zimmer1Ac" type="number" class="input">
+          <label for="zimmer1Ac" id = "labelZmOneAc">Zimmer 1 ERJ</label>
+          <!--<span class="helper-text left-align" >Orange Money AC</span>-->         
+        </div>
+        <div class="input-field">
+          <input id="smegaAc" type="number" class="input">
+          <label for="smegaAc" id = "labelSmegaAc" >Smega ERJ</label>
+          <!--<span class="helper-text left-align" >Btc Smega AC</span>-->
+        </div> 
+                
+      </div>
+    </form>
+    <section class = "form-heading">
+        <div id = "" class = "heading-text">Airtime Center - Mandy's Tuckshop</div> 
+        <h6 class = "round-display-text">Round- <span id = 'roundToBeDoneFormTwo'></span></h6>   
+    </section>
+    <form class="center-align offset-s1 " id = "form" autocomplete="off">
+      <div class="row">
+        <div class="input-field">
+          <input id="mtMasAc" type="number" class="input">
+          <label for="mtMasAc" id = "labelmtMasAc" >Mascom Master MTS</label>
+          <span class = "material-icons dropdown-trigger icon-input-field" data-target='dropdownTwo'>expand_more</span>
+          <!--<span class="helper-text left-align" >Mascom MyZaka AC</span>-->
+        </div>
+        <!-- Dropdown Structure -->
+        <ul id='dropdownTwo' class='dropdown-content'>
+          <li><a href="#!" id = "allZerosTwo" >All Zero's</a></li>
+          
+        </ul>
+        <div class="input-field">
+          <input id="mtOraAc" type="number" class="input">
+          <label for="mtOraAc" id = "labelmtOraAc" >Orange Master MTS</label>
+          <!--<span class="helper-text left-align" >Orange Money AC</span>-->         
+        </div>
+        <div class="input-field">
+          <input id="mtBtcAc" type="number" class="input">
+          <label for="mtBtcAc" id = "labelmtBtcAc">BTC Master MTS</label>
+          <!--<span class="helper-text left-align" >Orange Money AC</span>-->          
+        </div> 
+         <div class="input-field">
+          <input id="zimmer2Ac" type="number" class="input">
+          <label for="zimmer2Ac" id = "labelZmTwoAc">Zimmer 2 MTS</label>
+          <!--<span class="helper-text left-align" >Orange Money AC</span>-->          
+        </div>       
+       
+        <button data-target="modal1" class = "btn-ac waves-effect waves-light offset-s2 delayed center modal-trigger" id = "btn">Next<i class = "material-icons right">arrow_right_alt</i></button>
+      </div>  
+    </form>
+
+    <!-- Modal Structure -->
+      <div id="modal1" class="modal">
+        <div class="modal-content">
+          <h4>Info</h4>
+          <p>Please fill in all fields</p>
+        </div>
+        <div class="modal-footer">
+          <a href="#!" class="modal-close waves-effect waves-green btn-flat">OK</a>
+        </div>
+      </div>
+  </div>  
+
+</div>
+
+
+<script src = "js/airtime-center-jscript.js"></script>
+
+<!-- Compiled and minified JavaScript --> 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+</body>
+</html>

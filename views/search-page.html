@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv = "X-UA-Compatible" content = "ie=edge">
+
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+     <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">    
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <title>Document</title>     
+
+    <link rel = "stylesheet" href = "main-styles.css"></link> 
+    <link rel = "stylesheet" href = "navbar-styles.css"></link>       
+    <link rel = "stylesheet" href = "search-page-styles.css"></link>
+</head>
+
+<body>
+
+<div class = "container main-container">
+
+   <!--Navbar-->
+  <div class = "navbar-main"> 
+        <a href = "index.html" class = "navbar-icon" id = "navHomeIcon"><i class = "material-icons">home</i></a> 
+        <a href = "search-page.html" class = "navbar-icon" id = "searchIcon"><i class = "material-icons">search</i></a>         
+        <a href = "table16.html" class = "navbar-icon"><i class = "material-icons">table_view</i></a>         
+        <a href = "" class = "navbar-icon"><i class = "material-icons">menu</i></a>  
+                      
+    </div>
+ <!--end Navbar-->
+  <div class = "search-info-text">
+     
+    <span class = "search-heading">Search records by date :</span>
+  </div>
+  <div class = "input-field-search-container">    
+  	<input type = "text" placeholder = " > pick a date" class="datepicker" id = "date-input"> 
+    <span class = "waves-effect waves-light btn-small searchButton" id = "search-button">SEARCH</span>  
+  </div>    
+
+  <div class = "day-selector-text"><h6>Quick search...</h6></div>
+  <div class = "day-selector">
+    <div class = "box"><h6><a href = "" id = "yesterdayLink">Yesterday</a></h6></div>
+    <div class = "box short"><div class="vl"></div></div>
+    <div class = "box"><h6><a href = "table16.html">Today</a></h6></div>
+  </div>    
+</div>
+
+
+<script src = "search-page-jscript.js"></script>
+<!-- Compiled and minified JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+</body>
+</html>

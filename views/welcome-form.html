@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv = "X-UA-Compatible" content = "ie=edge">
+
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+     <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">  
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">   
+
+    <title>Document</title> 
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-app.js"></script>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-firestore.js"></script>
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+         https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-analytics.js"></script> 
+
+    <link rel = "stylesheet" href = "css/main-styles.css"></link>     
+    <link rel = "stylesheet" href = "css/input-forms-styles.css"></link>    
+
+</head>
+
+<body>
+
+
+<div class = "container">
+
+  
+  <!--Navbar-->  
+  
+    <div class = "navbar-fixed navbar-main"> 
+        <a href = "index.html" class = "navbar-icon" id = "navHomeIcon"><i class = "material-icons">home</i></a> 
+        <a href = "search-page.html" class = "navbar-icon"><i class = "material-icons">search</i></a> 
+       
+        <a href = "table16.html" class = "navbar-icon"><i class = "material-icons">table_view</i></a>         
+        <a href = "" class = "navbar-icon"><i class = "material-icons">menu</i></a>  
+                      
+    </div>
+ <!--end Navbar-->
+
+
+  <div class = "main-body" >  
+  	<p class = "date-time" id = "date-display"></p>
+
+    <section class = "instruction-text-section"> 
+    <i class="instruction-text-icon material-icons">double_arrow</i>  
+    <div class="instruction-text-text" >Enter today's Welcome, Round <span id = 'roundToBeDone'></span> amounts</div>
+    </section> 
+
+    <section class = "form-heading">
+        <div id = "" class = "heading-text">Welcome - Nzamela</div> 
+        <h6 class = "round-display-text">Round-<span id = 'roundToBeDoneFormOne'></span></h6>   
+    </section> 
+    
+    <form class="center-align offset-s1 " id = "form" autocomplete="off">
+      <div class="row row-input">
+        <div class="input-field ">
+          <input id="mascomNzamelaWlc" type="number" class="input">
+          <label for="mascomNzamelaWlc" id = "labelMnzWlc">Mascom Nzamela WLC</label>
+          <!--<span class="helper-text left-align" >Mascom Nzamela AC</span>-->
+          <span class = "material-icons dropdown-trigger icon-input-field" data-target='dropdownOne'>expand_more</span>
+        </div>
+                <!-- Dropdown Structure -->
+        <ul id='dropdownOne' class='dropdown-content'>
+          <li><a href="#!" id = "allZerosOne" >All Zero's</a></li>
+          
+        </ul>
+        <div class="input-field ">
+          <input id="orangeNzamelaWlc" type="number" inputmode="numeric" class="input">
+          <label for="orangeNzamelaWlc" id = "labelOnzWlc">Orange Nzamela WLC</label>
+          <!--<span class="helper-text left-align" >Orange Nzamela AC</span>-->         
+        </div>
+        <div class="input-field ">
+          <input id="btcNzamelaWlc" type="number" class="input">
+          <label for="btcNzamelaWlc" id = "labelBtcnzWlc">Btc Nzamela WLC</label>
+          <!--<span class="helper-text left-align" >Btc Nzamela AC</span>-->
+        </div>                
+      </div>
+
+       
+        <button data-target="modal1" class = "btn-wlc waves-effect waves-light offset-s2 delayed center modal-trigger" id = "btn">Submit Round <span id = 'buttonRound'></span><i class = "material-icons right">compare_arrows</i></button>
+      
+    </form>    
+    <!-- Modal Structure -->
+    <div id="modal1" class="modal">
+      <div class="modal-content">
+          <h4>Info</h4>
+          <p>Please fill in all fields</p>
+      </div>
+      <div class="modal-footer">
+          <a href="#!" class="modal-close waves-effect waves-green btn-flat">OK</a>
+      </div>
+    </div> 
+  </div>  
+
+</div>
+
+
+<script src = "js/welcome-jscript.js"></script>
+
+<!-- Compiled and minified JavaScript --> 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+</body>
+</html>

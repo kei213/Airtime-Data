@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv = "X-UA-Compatible" content = "ie=edge">
+
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+     <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    
+
+    <title>Table</title> 
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-app.js"></script>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-firestore.js"></script>
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+         https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-analytics.js"></script> 
+
+    <link rel = "stylesheet" href = "css/main-styles.css"></link>         
+    <link rel = "stylesheet" href = "css/table-styles.css"></link>
+    <link rel = "stylesheet" href = "css/search-page-styles.css"></link>  
+</head>
+
+<body>
+<div class = "container">
+  <!--Loader-->
+  <div class = "loader">
+    <span class = "loading-text">Working on it...</span>
+    
+  </div>
+
+  <!--Navbar-->  
+  <section class = "main-table">
+  
+    <div class = "navbar-main"> 
+        <a href = "index.html" class = "navbar-icon" id = "navHomeIcon"><i class = "material-icons">home</i></a> 
+        <a href = "" data-target = "modal2" class = "navbar-icon modal-trigger"><i class = "material-icons">search</i></a> 
+        
+        <a href = "" class = "navbar-icon" id = "tableIcon"><i class = "material-icons">table_view</i></a>         
+        <!--<a href = "" class = "navbar-icon"><i class = "material-icons">menu</i></a>-->  
+                      
+    </div>
+    <!--end Navbar-->
+
+  	
+    <!--<p class = "date-time" id = "text"></p>-->
+    <div class = "table-header-text">
+        <i class = "material-icons chevrons" id = "back-arrow">chevron_left</i> 
+        <p id = "date-display" class = "table-text"></p>
+        <i class = "material-icons chevrons" id = "forward-arrow">chevron_right</i> 
+    </div>
+    <section class = "error-message" id = "errorMessageSection"></section>
+
+    <table class = "striped responsive-table table-border" >
+      <thead>        
+        <tr class = "">  
+          <th class = "vendor-cell">Airtime Center</th>              
+          <th style = "color:#8f9499">Mascom Nzamela</th>
+          <th style = "color:#8f9499">Orange Nzamela</th>
+          <th style = "color:#8f9499">Btc Nzamela</th>
+          <th style = "color:#8f9499">MyZaka</th>
+          <th style = "color:#8f9499">Zimmer 1</th>
+          <th style = "color:#8f9499">Smega</th>          
+          <th style = "color:#8f9499">MTS Mascom</th>
+          <th style = "color:#8f9499">MTS Orange</th>
+          <th style = "color:#8f9499">MTS Btc</th>
+          <th style = "color:#8f9499">MTS Zimmer 2</th>
+        </tr>    
+      </thead>
+
+      <tbody id = "tablelistAc">
+       
+      </tbody>
+    </table>
+    
+    <table class = "striped responsive-table table-border" >
+      <thead>        
+        <tr class = "" >  
+          <th class = "vendor-cell">Welcome</th>              
+          <th style = "color:#8f9499">Mascom Nzamela</th>
+          <th style = "color:#8f9499">Orange Nzamela</th>
+          <th style = "color:#8f9499">Btc Nzamela</th>          
+        </tr>
+
+      </thead>
+
+      <tbody id = "tablelistWlc">
+        
+      </tbody>
+    </table>
+    <br /><br />
+  </section>  
+
+<!-- Modal Structure 2 -->
+  <div id="modal2" class="modal">
+    <div class="modal-content">
+      <!--<span class="close" id = "close">&times;</span> -->
+      <div class = "search-info-text">  
+        <i class="material-icons search-icon" >search</i>  
+        <span class = "search-heading">Search records by date :</span>
+      </div>
+
+      <div class = "day-selector">
+        <div class = "box"><h6><a href = "" id = "yesterdayLink">Yesterday</a></h6></div>
+        <div class = "box short"><div class="vl"></div></div>
+        <div class = "box"><h6><a href = "table.html">Today</a></h6></div>
+      </div> 
+
+      <hr></hr>
+
+      <div class = "input-field-search-container">                  
+        <div class = "calendar">
+          <!--<label for="calendarIcon">pick a date:</label>-->
+          <i class="material-icons " id = "calendarIcon" style = "color: #8f9499">date_range</i>
+          <input type = "text" placeholder = "pick a date" class="datepicker" id = "date-input">
+        </div>             
+        <span class = "waves-effect waves-light btn-small searchButton" id = "search-button">SEARCH</span>  
+      </div>         
+            
+    </div>
+        
+  </div>
+  
+    
+</div>
+
+<!-- Compiled and minified JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+<script src = "js/table.js"></script>
+
+
+</body>
+</html>

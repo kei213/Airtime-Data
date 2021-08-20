@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv = "X-UA-Compatible" content = "ie=edge">
+
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+     <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap" rel="stylesheet">
+
+    <title>airtime data</title> 
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-firestore.js"></script>
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+         https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-analytics.js"></script>    
+   
+    <link rel = "stylesheet" href = "css/main-styles.css"></link>       
+    <link rel = "stylesheet" href = "css/index-styles.css"></link> 
+    <link rel = "stylesheet" href = "css/search-page-styles.css"></link>  
+
+</head>
+
+<body>
+
+<div class = "container main-container">
+    
+    <!--Navbar-->
+    <div class = "heading-container">    
+        
+        <span class = "app-name ">Airtime data</span>
+        
+        <div class = "heading-icon"><span class='dropdown-trigger' href='#' data-target='dropdown1'><i class = "material-icons">menu</i></span></div>
+        <!-- Dropdown Structure -->
+        <ul id='dropdown1' class='dropdown-content'>
+          
+          <li><a href="/sessionLogout" id = 'logout'><i class = "material-icons">logout</i>Log Out</a></li>
+        </ul>
+    </div>
+    <!--End Navbar-->
+    <p class = 'user-display' id = 'userInfo'><p>
+    <h5 class = "dayDisplay" id = "large-day-display"></h5>
+    <p class = "dateDisplay" id = "date-display"></p>
+
+    <div class="collection">
+      <a href="#!" class="collection-item round-text" onClick = 'addButtonClick()'><span class="badge"><i class="material-icons notDoneIcon" id = "roundOneCancelIcon">cancel_presentation</i><i class="material-icons doneIcon" id = "roundOneDoneIcon">done</i></span>Round <span class = "round-number">1</span><span class = "badge" id = "roundOneText"></span></a>
+      <a href="#!" class="collection-item round-text" onClick = 'addButtonClick()'><span class="badge"><span class="material-icons notDoneIcon" id = "roundTwoCancelIcon">
+      cancel_presentation</span><i class="material-icons doneIcon" id = "roundTwoDoneIcon">done</i></span>Round <span class = "round-number">2</span><span class = "badge" id = "roundTwoText"></span></a>
+      
+    </div>
+    
+  
+  <div class = "info-container">
+    
+     <span class="index-info-text-icon material-icons">double_arrow</span>
+     <p class ="index-info-text" id = "display-message">Loading....<p>
+  </div>
+ 
+  <div class = "section-container">
+
+      <div class="row ">        
+          <div class="col s2 icons"><img src = "img/plus.svg"></div>
+          <div class="col s10">
+            <button data-target="modal1" class="waves-effect waves-light btn-small index-page-buttons index-button-blue modal-trigger" id = "addDataBtn">Add Data</button>
+          </div>
+      </div> 
+
+      <div class="row "> 
+          <div class="col s2 icons"><img src = "img/database-search-outline.svg"></div>
+          <div class="col s10">
+            <button class="waves-effect waves-light btn-small index-page-buttons modal-trigger" data-target="modal2" id = "dateSearch">Search Data</button>
+          </div>  
+      </div> 
+
+      <div class="row "> 
+          <div class="col s2 icons"><img src = "img/table_view.svg"></div>
+          <div class="col s10">
+            <button class="waves-effect waves-light btn-small index-page-buttons" href='#' id = "viewRecords">View records</button>
+          </div>  
+      </div>
+
+      <div class="row "> 
+          <div class="col s2 icons"><img src = "img/simcard.svg"></div>
+          <div class="col s10">
+            <button class="waves-effect waves-light btn-small index-page-buttons" href='#' id = "phoneNumbers">Phone numbers</button>
+          </div>  
+      </div>
+
+            
+
+      <!--Modal Structure 1--> 
+      <div id="modal1" class="modal no-border">
+        <div class="modal-content">
+          <h4>Info</h4>
+          <p>All of todays data has been submitted</p>
+        </div>
+        <div class="modal-footer">
+          <a href="#!" class="modal-close waves-effect waves-green btn-flat">OK</a>
+        </div>
+      </div>
+
+      <!-- Modal Structure 2 -->
+      <div id="modal2" class="modal">
+        <div class="modal-content">
+            <!--<span class="close" id = "close">&times;</span> -->
+
+            <div class = "search-info-text">  
+            <i class="material-icons search-icon" >search</i>  
+            <span class = "search-heading">Search records by date :</span>
+            </div>
+
+            <div class = "day-selector">
+              <div class = "box"><h6><a href = "" id = "yesterdayLink">Yesterday</a></h6></div>
+              <div class = "box short"><div class="vl"></div></div>
+              <div class = "box"><h6><a href = "table.html">Today</a></h6></div>
+            </div> 
+
+            <hr></hr>
+
+            <div class = "input-field-search-container">                  
+              <div class = "calendar">
+                <!--<label for="calendarIcon">pick a date:</label>-->
+                <i class="material-icons " id = "calendarIcon" style = "color: #8f9499">date_range</i>
+                <input type = "text" placeholder = "pick a date" class="datepicker" id = "date-input">
+              </div>             
+              <span class = "waves-effect waves-light btn-small searchButton" id = "search-button">SEARCH</span>
+    
+            </div>         
+            <div class = 'modal-close '>
+              <label for = 'modalClose'>Close<label>
+              <p class="modal-close waves-effect waves-green btn-flat" id = 'modalClose'>X<p> 
+            <div>
+        </div>
+        
+      </div>
+  </div><!--close section-container-->  
+</div>
+
+<!-- Compiled and minified JavaScript --> 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+<script src = "js/index-jscript.js"></script>
+</body>
+</html>
