@@ -16,7 +16,7 @@ admin.initializeApp({
 
 // setting up express server
 const app = express();
-const PORT = 3000 || process.env.PORT;
+const PORT = 80 || process.env.PORT;
 
 app.listen(PORT, () => 
 	console.log(`Server running on port ${PORT}`));
