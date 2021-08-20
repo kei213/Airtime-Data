@@ -1,0 +1,1 @@
+An in-house app for Zimaman Enterprises to store data about its daily operations.
