@@ -9,24 +9,54 @@
 }
 
 .heading-text {
-	color:#91969c;
+	color: #9b9fa3/*#91969c*/;
 	margin-left:0.7rem;	
 	font-size: 1.35rem;
-	font-weight: bold;
+	font-weight: ;
+	border-bottom: 1px solid #9b9fa3;
 
 	
 }
 
 .heading-icon {
 	margin-top: 0.3rem;
-	color:#91969c;
+	color: #9b9fa3/*#91969c*/;
 }
 
 .list-name {
 	font-family: 'Montserrat', sans-serif;
 	color:#a3a7ac !important;
+	font-size: 1.1rem;
 }
 
 .list-icons {
 	color:#008387;
+}
+
+.numbers-list {
+  /*list-style: circle !important;*/
+  /*background: red;*/
+  /*list-style: inside url('../img/simcard.svg')!important;*/
+  list-style: circle inside url('../img/table_view.svg')!important;
+  color: #a3a7ac;*/
+}
+}
+
+li {
+	
+}
+
+.vendor-name {
+	font-family: 'Montserrat', sans-serif;
+	color: #008387 /*#a3a7ac*/ !important;
+	text-decoration: underline;
+	font-size: 1.2rem;
+
+}
+.simcard-name {
+	/*color: #a3a7ac;*/
+}
+
+.simcard-number {
+	font-style: italic;
 }
