@@ -285,7 +285,7 @@ document.querySelector("#search-button").addEventListener("click", (e) => {
     const datePassed = dateSplit
     console.log(datePassed);
     sessionStorage.setItem("date-passed", datePassed);
-    window.location = "table.html";
+    window.location = "table";
 }) 
 
 const today = new Date()
@@ -301,7 +301,7 @@ let yestString = `${yestDate}-${yestMonth}-${yestYear}`;
 document.querySelector("#yesterdayLink").addEventListener('click', (e) => {
     e.preventDefault();
     sessionStorage.setItem("date-passed", yestString);
-    window.location = "table.html";
+    window.location = "table";
 })
 
 document.querySelector("#calendarIcon").addEventListener("click", (e) => {
