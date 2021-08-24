@@ -25,7 +25,7 @@
 
 .list-name {
 	font-family: 'Montserrat', sans-serif;
-	color:#a3a7ac !important;
+	color:#a3a7ac ;
 	font-size: 1.1rem;
 }
 
@@ -40,16 +40,16 @@
   /*list-style: circle inside url('../img/table_view.svg')!important;*/
   color: #a3a7ac;*/
 }
-}
 
-.list-item {
-	margin-bottom: 20px 0;
-	background: red !important;
+
+.simcard-list li {
+	margin-bottom: 0.16rem;	
+	letter-spacing: 0.03rem;
 }
 
 .vendor-name {
 	font-family: 'Montserrat', sans-serif;
-	color: #008387 /*#a3a7ac*/ !important;
+	color: #008387 /*#a3a7ac*/ ;
 	text-decoration: underline;
 	font-size: 1.2rem;
 	margin-bottom: 0.9rem ;
@@ -67,7 +67,6 @@
 	font-size:1.18rem;
 	margin-right: 0.50rem;
 	color: #a3a7ac /*#a3a7ac*/ ;
-
 }
 
 
