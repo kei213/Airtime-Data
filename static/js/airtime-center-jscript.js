@@ -17,12 +17,23 @@ console.log("airtime-center-jscript.js");
 var db = firebase.firestore();
 db.settings({timestampsInSnapshots: true});
 
+let acForm = document.querySelector(".main-body-ac")
+let wlcForm = document.querySelector(".main-body-wlc")
 // Page Navigation
 function clickedButton(conditions, roundToBeDone) {
 
 	if (conditions === true){
-	  sessionStorage.setItem("roundToBeDone", roundToBeDone)
-      window.location = 'welcome-form';
+	  // sessionStorage.setItem("roundToBeDone", roundToBeDone)
+      // window.location = 'welcome-form';
+       acForm.style.display = "none";       
+       wlcForm.style.display = "block";
+       wlcForm.style.opacity = 0;
+       
+       setTimeout(() => (wlcForm.style.opacity = 0.2), 100) 
+       setTimeout(() => (wlcForm.style.opacity = 0.4), 200) 
+       setTimeout(() => (wlcForm.style.opacity = 0.6), 300) 
+       setTimeout(() => (wlcForm.style.opacity = 0.8), 400) 
+       setTimeout(() => (wlcForm.style.opacity = 1), 500)
     }
 
 };
@@ -94,7 +105,7 @@ function clearModal(instance) {
 	    instance.destroy();
 }
 
-//Initialize dropdownOne menu for All Zeros
+//Initialize dropdownOne menu for All Zeros -- Ema re je
 document.addEventListener('DOMContentLoaded', function() {
     var elemsOne = document.querySelectorAll('.dropdown-trigger');
     var instancesOne = M.Dropdown.init(elemsOne);
@@ -122,7 +133,7 @@ document.querySelector('#allZerosOne').addEventListener("click", (e) => {
 	
 })
 
-//Initialize dropdownTwo menu for All Zeros
+//Initialize dropdownTwo menu for All Zeros -- Mandy's Tuckshop
 document.addEventListener('DOMContentLoaded', function() {
     var elemsTwo = document.querySelectorAll('.dropdown-trigger');
     var instancesTwo = M.Dropdown.init(elemsTwo);
@@ -182,7 +193,7 @@ document.querySelector('#btn').addEventListener("click", (e) => {
 		
 		// Store values in Firebase
 		db.collection("Airtime Center").add({
-            dayString: dayString,
+            /*dayString: dayString,
             dateString: dateString,            
             vendor: "Airtime Center",           
 			mascomNzamelaAc: mascomNzamelaAc,
@@ -195,7 +206,7 @@ document.querySelector('#btn').addEventListener("click", (e) => {
             mtsOrangeAc: mtsOrangeAc,
             mtsBtcAc: mtsBtcAc,
 			zimmer2Ac: zimmer2Ac,
-			timestamp:firebase.firestore.FieldValue.serverTimestamp()
+			timestamp:firebase.firestore.FieldValue.serverTimestamp()*/
 
 		}).then( user => {
 
