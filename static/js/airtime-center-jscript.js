@@ -19,9 +19,10 @@ db.settings({timestampsInSnapshots: true});
 
 let acForm = document.querySelector(".main-body-ac")
 let wlcForm = document.querySelector(".main-body-wlc")
-// Page Navigation
-function clickedButton(conditions, roundToBeDone) {
 
+// Page Navigation
+function nextClickedButton(conditions, roundToBeDone) {
+    console.log('nextClickedButton called')
 	if (conditions === true){
 	  // sessionStorage.setItem("roundToBeDone", roundToBeDone)
       // window.location = 'welcome-form';
@@ -160,7 +161,7 @@ document.querySelector('#allZerosTwo').addEventListener("click", (e) => {
 
 
 // Get Values from form and submit them to Firebase
-document.querySelector('#btn').addEventListener("click", (e) => {
+document.querySelector('#nextBtn').addEventListener("click", (e) => {
 
 	// Prevent actual submit
      e.preventDefault();
@@ -213,7 +214,7 @@ document.querySelector('#btn').addEventListener("click", (e) => {
 		}).then( user => {
 
             // Function to move onto next page
-			clickedButton(conditions, roundToBeDone);
+			nextClickedButton(conditions, roundToBeDone);
 
 			});
 		

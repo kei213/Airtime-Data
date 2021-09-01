@@ -1,7 +1,7 @@
-console.log("airtime-center-jscript.js");
+
 // Your web app's Firebase configuration
   // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-  var firebaseConfig = {
+ /*var firebaseConfig = {
     apiKey: "AIzaSyA0NeM50YRKXqIdd5RK71M_wx_EqgsgfMM",
     authDomain: "airtime-data-57cd2.firebaseapp.com",
     projectId: "airtime-data-57cd2",
@@ -15,10 +15,10 @@ console.log("airtime-center-jscript.js");
   firebase.analytics(); 
   
 var db = firebase.firestore();
-db.settings({timestampsInSnapshots: true});
+db.settings({timestampsInSnapshots: true});*/
 
 // Page Navigation
-function clickedButton(conditions) {
+function submitClickedButton(conditions) {
 
 	if (conditions === true){
 	  
@@ -29,7 +29,7 @@ function clickedButton(conditions) {
 
 //UI class: Handles UI tasks
 
-class UI {
+/*class UI {
 
 	static showDate(dateString) {
 
@@ -49,7 +49,7 @@ class UI {
         ,500)
 	}
 	
-}
+}*/
 
 function clearModal(instance) {	
 	
@@ -65,7 +65,7 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 
 //Automatically fill in Zeros 
-document.querySelector('#allZerosOne').addEventListener("click", (e) => {
+document.querySelector('#allZerosWlc').addEventListener("click", (e) => {
 	document.querySelector('#labelMnzWlc').click();
 	document.querySelector('#mascomNzamelaWlc').value = 0;
 
@@ -78,15 +78,15 @@ document.querySelector('#allZerosOne').addEventListener("click", (e) => {
     	
 })
 
-let roundToBeDone = sessionStorage.getItem("roundToBeDone")
-console.log('round to be done is', roundToBeDone)
+/*let roundToBeDone = sessionStorage.getItem("roundToBeDone")
+console.log('round to be done is', roundToBeDone)*/
 
-document.querySelector("#roundToBeDone").innerText = roundToBeDone;
-document.querySelector("#roundToBeDoneFormOne").innerText = roundToBeDone;
+document.querySelector("#roundToBeDoneWlc").innerText = roundToBeDone;
+document.querySelector("#roundToBeDoneFormWlc").innerText = roundToBeDone;
 
 document.querySelector("#buttonRound").innerText = roundToBeDone;
 
-const date = new Date();
+/*const date = new Date();
 var dateString = date.toDateString();
 UI.showDate(dateString);
 
@@ -95,11 +95,11 @@ const month = date.getMonth();
 const year = date.getFullYear();
 
 let dayString = `${day}-${month}-${year}`;
-    console.log('WLC dayString is', dayString)
+    console.log('WLC dayString is', dayString)*/
 // Get values from form
-let conditions = false;
+conditions = false;
 
-document.querySelector('#btn').addEventListener("click", (e) => {
+document.querySelector('#submitBtn').addEventListener("click", (e) => {
 
 	// Prevent actual submit
      e.preventDefault();
@@ -142,7 +142,7 @@ document.querySelector('#btn').addEventListener("click", (e) => {
 			}).then( user => {
            
             // Function to move onto next page
-			clickedButton(conditions);
+			submitClickedButton(conditions);
 
 			});;
 		
