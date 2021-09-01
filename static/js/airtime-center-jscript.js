@@ -29,10 +29,10 @@ function clickedButton(conditions, roundToBeDone) {
        wlcForm.style.display = "block";
        wlcForm.style.opacity = 0;
        
-       setTimeout(() => (wlcForm.style.opacity = 0.1), 100) 
-       setTimeout(() => (wlcForm.style.opacity = 0.2), 200) 
-       setTimeout(() => (wlcForm.style.opacity = 0.3), 300) 
-       setTimeout(() => (wlcForm.style.opacity = 0.5), 400) 
+       setTimeout(() => (wlcForm.style.opacity = 0.2), 100) 
+       setTimeout(() => (wlcForm.style.opacity = 0.3), 200) 
+       setTimeout(() => (wlcForm.style.opacity = 0.4), 300) 
+       setTimeout(() => (wlcForm.style.opacity = 0.6), 400) 
        setTimeout(() => (wlcForm.style.opacity = 0.7), 500) 
        setTimeout(() => (wlcForm.style.opacity = 0.8), 600)
        setTimeout(() => (wlcForm.style.opacity = 1), 700)
