@@ -3,7 +3,8 @@ const express = require('express')
 const cookieParser = require('cookie-parser')
 const csrf = require('csurf')
 const bodyParser = require('body-parser')
-const admin = require("firebase-admin");
+const admin = require("firebase-admin")
+const dotenv = require('dotenv').config()
 
 const csrfMiddleware = csrf({ cookie: true })
 

@@ -1,7 +1,9 @@
 // Your web app's Firebase configuration
   // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const apiKey = process.env.APIKEY
+
 var firebaseConfig = {
-    apiKey: "AIzaSyA0NeM50YRKXqIdd5RK71M_wx_EqgsgfMM",
+    apiKey: apiKey,
     authDomain: "airtime-data-57cd2.firebaseapp.com",
     projectId: "airtime-data-57cd2",
     storageBucket: "airtime-data-57cd2.appspot.com",
@@ -9,6 +11,8 @@ var firebaseConfig = {
     appId: "1:542127943927:web:5e6d713f2f221ca6dee3f2",
     measurementId: "G-C4380R8QLQ"
   };
+
+
 
   // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
