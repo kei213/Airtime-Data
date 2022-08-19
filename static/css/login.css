@@ -1,0 +1,15 @@
+.login-button {
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 1rem;
+}
+
+.text-span {
+	/*color: blue;*/
+}
+
+#loginForm {
+	margin-top: 1rem;
+}

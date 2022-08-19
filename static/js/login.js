@@ -1,7 +1,10 @@
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+
+const apiKey = process.env.APIKEY
+
 var firebaseConfig = {
-    apiKey: "AIzaSyA0NeM50YRKXqIdd5RK71M_wx_EqgsgfMM",
+    apiKey: apiKey,
     authDomain: "airtime-data-57cd2.firebaseapp.com",
     projectId: "airtime-data-57cd2",
     storageBucket: "airtime-data-57cd2.appspot.com",
@@ -39,9 +42,12 @@ loginForm.addEventListener('submit', (e) => {
     // get user info
     const email = loginForm['email'].value
     const password = loginForm['password'].value
-  
-    loginForm.reset()
 
+    setTimeout(() => {
+      loginForm.reset()
+    }, 500)
+  
+   
     //sign up user
     /*auth.signInWithEmailAndPassword(email, password).then(cred => {
     console.log(cred.user)

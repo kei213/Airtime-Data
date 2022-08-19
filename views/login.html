@@ -31,9 +31,10 @@
     <script src = 'https:cdn.jsdelivr.net/npm/js-cookie@3.0.0/dist/js.cookie.min.js'></script> --> 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/2.2.1/js.cookie.min.js" integrity="sha512-Meww2sXqNHxI1+5Dyh/9KAtvI9RZSA4c1K2k5iL02oiPO/RH3Q30L3M1albtqMg50u4gRTYdV4EXOQqXEI336A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
    
-    <link rel = "stylesheet" href = "css/main-styles.css"></link>       
-    <link rel = "stylesheet" href = "css/index-styles.css"></link> 
-    <link rel = "stylesheet" href = "css/search-page-styles.css"></link>  
+    <link rel = "stylesheet" href = "css/main-styles.css"></link>    
+    <link rel = "stylesheet" href = "css/login.css"></link>    
+    <!--<link rel = "stylesheet" href = "css/index-styles.css"></link> 
+    <link rel = "stylesheet" href = "css/search-page-styles.css"></link> -->
 
 </head>
 
@@ -42,7 +43,9 @@
 <div class = "container">
 
   <div class="row">
-    <h4>Login<h4>
+    <h4>Login</h4>
+    <p>Not yet created an account ? <a class="         text-span">Sign up</a>
+    </p>  
     <form class="col s12" id = 'loginForm'>
       <div class="row">
         <div class="input-field col s12">
@@ -56,8 +59,8 @@
           <label for="password">Password</label>
         </div>
       </div>
-      <button class="btn waves-effect waves-light" type="submit" name="action">Login
-        <i class="material-icons right">send</i>
+      <button class="btn waves-effect waves-light login-button" type="submit" name="action">Login
+        <i class="material-icons">send</i>
       </button>      
       <p class = 'error-message' id = 'errorMessage'><p>
     </form>

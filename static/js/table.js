@@ -3,7 +3,7 @@ console.log('table.js');
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 var firebaseConfig = {
-    apiKey: "AIzaSyA0NeM50YRKXqIdd5RK71M_wx_EqgsgfMM",
+    apiKey: apiKey,
     authDomain: "airtime-data-57cd2.firebaseapp.com",
     projectId: "airtime-data-57cd2",
     storageBucket: "airtime-data-57cd2.appspot.com",
