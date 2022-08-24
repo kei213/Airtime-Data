@@ -38,10 +38,8 @@
 <div class = "container main-container">
     
     <!--Navbar-->
-    <div class = "heading-container">    
-        
-        <span class = "app-name ">Airtime data</span>
-        
+    <div class = "navbar">  
+        <span class = "app-name ">Airtime data</span>        
         <div class = "heading-icon"><span class='dropdown-trigger' href='#' data-target='dropdown1'><i class = "material-icons">menu</i></span></div>
         <!-- Dropdown Structure -->
         <ul id='dropdown1' class='dropdown-content'>
@@ -54,51 +52,73 @@
     <h5 class = "dayDisplay" id = "large-day-display"></h5>
     <p class = "dateDisplay" id = "date-display"></p>
 
-    <div class="collection">
-      <a href="#!" class="collection-item round-text" onClick = 'addButtonClick()'><span class="badge"><i class="material-icons notDoneIcon" id = "roundOneCancelIcon">cancel_presentation</i><i class="material-icons doneIcon" id = "roundOneDoneIcon">done</i></span>Round <span class = "round-number">1</span><span class = "badge" id = "roundOneText"></span></a>
-      <a href="#!" class="collection-item round-text" onClick = 'addButtonClick()'><span class="badge"><span class="material-icons notDoneIcon" id = "roundTwoCancelIcon">
-      cancel_presentation</span><i class="material-icons doneIcon" id = "roundTwoDoneIcon">done</i></span>Round <span class = "round-number">2</span><span class = "badge" id = "roundTwoText"></span></a>
-      
+    <div class="roundDisplayDiv">
+        <div class="round-display" onClick ='addButtonClick()'>  
+          <span class=" round-text">Round 1</span>
+          <i class="material-icons notDoneIcon" id = "roundOneCancelIcon">  cancel_presentation</i>
+          <i class="material-icons doneIcon" id = "  roundOneDoneIcon">done</i>       
+          <span class = "roundStatusText" id = "roundOneText"></span>
+        </div>
+
+        <div class="round-display" onClick = 'addButtonClick()'>
+          <span class=" round-text">Round 2</span>
+          <i class="material-icons notDoneIcon" id = "roundTwoCancelIcon">cancel_presentation</i>      
+          <i class="material-icons doneIcon" id = "roundTwoDoneIcon">done</i>
+          <span class = "roundStatusText" id = "roundTwoText"></span>
+        </div>      
     </div>
     
   
-  <div class = "info-container">
-    
-     <span class="index-info-text-icon material-icons">double_arrow</span>
-     <p class ="index-info-text" id = "display-message">Loading....<p>
-  </div>
+    <div class = "info-container">    
+        <p class ="index-info-text" id = "display-message">Loading....<p>
+    </div>
  
   <div class = "section-container">
-
-      <div class="row ">        
-          <div class="col s2 icons"><img src = "img/plus.svg"></div>
-          <div class="col s10">
-            <button data-target="modal1" class="waves-effect waves-light btn-small index-page-buttons index-button-blue modal-trigger" id = "addDataBtn">Add Data</button>
+      <div class="row"> 
+          <div class="col s12">
+            <button data-target="modal1" class="waves-effect waves-light btn-small index-page-buttons changeBkgroundBtn modal-trigger"
+            id="addDataBtn">
+              <div class="iconContainer">
+                <img src = "img/plus.svg">
+              </div>  
+              <p id = "addDataBtnText">Add Data</p>
+             </button>
           </div>
       </div> 
 
-      <div class="row "> 
-          <div class="col s2 icons"><img src = "img/database-search-outline.svg"></div>
-          <div class="col s10">
-            <button class="waves-effect waves-light btn-small index-page-buttons modal-trigger" data-target="modal2" id = "dateSearch">Search Data</button>
+      <div class="row ">           
+            <div class="col s12">
+              <button class="waves-effect waves-light btn-small index-page-buttons modal-trigger" data-target="modal2" id = "dateSearch">
+                <div class="iconContainer">
+                  <img src = "img/database-search-outline.svg">  
+                </div>
+                <p>Search Data</p>
+              </button>
           </div>  
       </div> 
 
-      <div class="row "> 
-          <div class="col s2 icons"><img src = "img/table_view.svg"></div>
-          <div class="col s10">
-            <button class="waves-effect waves-light btn-small index-page-buttons" href='#' id = "viewRecords">View records</button>
+       <div class="row ">           
+            <div class="col s12">
+              <button class="waves-effect waves-light btn-small index-page-buttons modal-trigger" data-target="modal2" id = "viewRecords">
+                <div class="iconContainer">
+                  <img src = "img/table_view.svg"> 
+                </div>
+                <p>View records</p>
+              </button>
           </div>  
-      </div>
+      </div> 
 
-      <div class="row "> 
-          <div class="col s2 icons"><img src = "img/simcard.svg"></div>
-          <div class="col s10">
-            <button class="waves-effect waves-light btn-small index-page-buttons" href='#' id = "phoneNumbers">Phone numbers</button>
+      <div class="row ">           
+            <div class="col s12">
+              <button class="waves-effect waves-light btn-small index-page-buttons modal-trigger" data-target="modal2" id = "phoneNumbers">
+                <div class="iconContainer">
+                  <img src = "img/simcard.svg">
+                </div>
+                <p>Phone numbers</p>
+              </button>
           </div>  
-      </div>
-
-            
+      </div> 
+           
 
       <!--Modal Structure 1--> 
       <div id="modal1" class="modal no-border">
@@ -151,6 +171,7 @@
 <!-- Compiled and minified JavaScript --> 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
-<script src = "js/index-jscript.js"></script>
+<script src = "/js/bundle.js" type="module"></script>
+<script src = "/js/index-script.js" type="module"></script>
 </body>
 </html>

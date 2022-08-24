@@ -4,13 +4,31 @@ const cookieParser = require('cookie-parser')
 const csrf = require('csurf')
 const bodyParser = require('body-parser')
 const admin = require("firebase-admin")
+const webpack = require('webpack')
 const dotenv = require('dotenv').config()
 
-const csrfMiddleware = csrf({ cookie: true })
+
+
+webpack({
+  // [Configuration Object](/configuration/)  
+	  entry: './static/js/env-variables.js',	
+	  output: { path: __dirname, filename: './static/js/bundle.js' },
+	  plugins: [
+	    new webpack.DefinePlugin({
+	        'process.env.NODE_ENV': JSON.stringify(process.env.APIKEY)
+	    })
+	  ],
+ }, 
+ (err, stats) => { // [Stats Object](#stats-object)
+  if (err || stats.hasErrors()) {
+    // [Handle errors here](#error-handling)
+    console.log(err)
+  }
+  // Done processing
+});
 
 // firebase
 const serviceAccount = require("./airtime-data-57cd2-firebase-adminsdk-qlnu9-29fe0a6ee9.json");
-
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount)
 });
@@ -25,6 +43,8 @@ app.listen(PORT, () =>
 app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'html');
 
+// set upmiddleware
+const csrfMiddleware = csrf({ cookie: true })
 app.use(bodyParser.urlencoded({
   extended: true
 }));
@@ -46,9 +66,7 @@ app.all('*', (req, res, next) => {
 
 // set up routing
 app.get('/', (req, res) => {
-
 	console.log('/')
-
 	const sessionCookie = req.cookies.session || '';
 
 	admin.auth()
@@ -61,10 +79,14 @@ app.get('/', (req, res) => {
 	     })	
 })
 
+app.get('/apiKey', (req, res) => {
+	console.log('/apiKey')
+    const key = process.env.APIKEY
+	res.json({'key': key})
+})
+
 app.get('/index', (req, res) => {
-
 	console.log('/index')
-
 	const sessionCookie = req.cookies.session || '';	
     
 	admin.auth()
@@ -78,9 +100,7 @@ app.get('/index', (req, res) => {
 })
 
 app.get('/airtime-center-form', (req, res) => {
-
 	console.log('/airtime-center-form')
-
 	const sessionCookie = req.cookies.session || '';	
     
 	admin.auth()
@@ -94,11 +114,8 @@ app.get('/airtime-center-form', (req, res) => {
 })
 
 app.get('/welcome-form', (req, res) => {
-
 	console.log('/welcome-form')
-
-	const sessionCookie = req.cookies.session || '';	
-    
+	const sessionCookie = req.cookies.session || '';	    
 	admin.auth()
 	     .verifySessionCookie(sessionCookie, true)
 	     .then (() => {
@@ -110,18 +127,13 @@ app.get('/welcome-form', (req, res) => {
 })
 
 app.get('/login', (req, res) => {
-
-	console.log('/login')
-	
+	console.log('/login')	
 	res.render('login.html')
 })
 
-app.get('/table', (req, res) => {
-	
+app.get('/table', (req, res) => {	
 	console.log('/table')
-
-	const sessionCookie = req.cookies.session || '';	
-    
+	const sessionCookie = req.cookies.session || '';    
 	admin.auth()
 	     .verifySessionCookie(sessionCookie, true)
 	     .then (() => {
@@ -133,9 +145,7 @@ app.get('/table', (req, res) => {
 })
 
 app.get('/phone-numbers', (req, res) => {
-
 	console.log('/phone-numbers')
-
 	const sessionCookie = req.cookies.session || '';	
     
 	admin.auth()
@@ -174,7 +184,7 @@ app.post('/sessionLogin', (req, res) => {
 
 
 app.get('/sessionLogout', (req, res) => {
-  console.log('/sessionLogout')
+ 
   const sessionCookie = req.cookies.session || '';
   res.clearCookie('session');
   admin

@@ -1,43 +1,41 @@
-// Your web app's Firebase configuration
-  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-const apiKey = process.env.APIKEY
+// Firebase configuration
 
-var firebaseConfig = {
-    apiKey: apiKey,
-    authDomain: "airtime-data-57cd2.firebaseapp.com",
-    projectId: "airtime-data-57cd2",
-    storageBucket: "airtime-data-57cd2.appspot.com",
-    messagingSenderId: "542127943927",
-    appId: "1:542127943927:web:5e6d713f2f221ca6dee3f2",
-    measurementId: "G-C4380R8QLQ"
-  };
+/*let apiKey = process.env.NODE_ENV
 
+let firebaseConfig = {
+      apiKey: apiKey,
+      authDomain: "airtime-data-57cd2.firebaseapp.com",
+      projectId: "airtime-data-57cd2",
+      storageBucket: "airtime-data-57cd2.appspot.com",
+      messagingSenderId: "542127943927",
+      appId: "1:542127943927:web:5e6d713f2f221ca6dee3f2",
+      measurementId: "G-C4380R8QLQ"
+};
 
-
-  // Initialize Firebase
+// Initialize Firebase
 firebase.initializeApp(firebaseConfig);
-firebase.analytics(); 
+firebase.analytics(); */
 
+//make auth and firestore references
 const auth = firebase.auth();
-var db = firebase.firestore();
+firebase.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL);
+
+const db = firebase.firestore();
 db.settings({timestampsInSnapshots: true});
 
-var main = document.querySelector(".main-container");
 
+var main = document.querySelector(".main-container");
 
 // listen for auth status changes
 auth.onAuthStateChanged(user => {
   if (user) {
-    console.log('user logged in: ', user)
-    const userInfo = document.querySelector('#userInfo')
-    userInfo.innerText = user.email    
+      const userInfo = document.querySelector('#userInfo')
+      userInfo.innerText = user.email    
 
   } else {
     console.log('user logged out')
   }
-})
-
-
+  })
 
 // logout user
 /*const logout = document.querySelector('#logout');
@@ -65,7 +63,7 @@ document.addEventListener('DOMContentLoaded', function() {
 //UI classes
 
 class UI {
-
+  
     static showDayText(displayDay) {
       const largeDayDisplay = document.querySelector('#large-day-display');        
         largeDayDisplay.innerHTML = displayDay;  
@@ -120,8 +118,8 @@ db.collection("Round")
             const displayMessage = document.querySelector('#display-message');
             if (querySnapshot.empty) {
                
-                displayMessage.innerHTML = " After buying, please submit today's Round 1 amounts. Thanx..";
-                const addButton = document.querySelector("#addDataBtn");
+                displayMessage.innerHTML = "please submit today's Round 1 amounts. Thanx..";
+                const addButton = document.querySelector("#addDataBtnText");
                 addButton.innerText = "Add Round 1 Data";
                 const sectionText = document.querySelector("#sectionTextTop");
                 /*sectionText.innerText = "Round 1";*/
@@ -136,44 +134,43 @@ db.collection("Round")
                       roundTwoText.innerText = 'Not Done';  
 
                 document.querySelector('#addDataBtn').addEventListener('click', (e) => {
-                e.preventDefault() 
-                const roundToBeDone = 1
-                sessionStorage.setItem("roundToBeDone", roundToBeDone)
-                window.location = 'airtime-center-form'
+                    e.preventDefault() 
+                    const roundToBeDone = 1
+                    sessionStorage.setItem("roundToBeDone", roundToBeDone)
+                    window.location = 'airtime-center-form'
                 })
             }
             
             else {
                 db.collection("Round")
                          .where('dayString','==', `${dayString}`).get().then((snapshot) => {
-                                        snapshot.docs.forEach(doc => {
-                                        const round = doc.data();
+                              snapshot.docs.forEach(doc => {
+                              const round = doc.data();
 
-                                       if (round.roundStatus === '1'){
-                                              displayMessage.innerHTML = " Round 1 has been done, Round 2 left";
+                              if (round.roundStatus === '1'){
+                                  displayMessage.innerHTML = " Round 1 has been done, Round 2 left";
 
-                                              const addButton = document.querySelector("#addDataBtn");
-                                                    addButton.innerText = "Add Round 2 Data";
-                                              const sectionText = document.querySelector("#sectionTextTop");
+                                  const addButton = document.querySelector("#addDataBtnText");
+                                  addButton.innerText = "Add Round 2 Data";
+                                  const sectionText = document.querySelector("#sectionTextTop");
                                                     /*sectionText.innerText = "Round 2";*/
                                                      
-                                              const roundOneDoneIcon = document.querySelector("#roundOneDoneIcon");
-                                                    roundOneDoneIcon.style.display = 'block';
-                                              const roundOneText = document.querySelector("#roundOneText");
-                                                    roundOneText.innerText = 'Done';   
-                                              const roundTwoCancelIcon = document.querySelector("#roundTwoCancelIcon");                                                           
-                                                    roundTwoCancelIcon.style.display = 'block';        
-                                              const roundTwoText = document.querySelector("#roundTwoText");
-                                                    roundTwoText.innerText = 'Not Done';                                                       
+                                  const roundOneDoneIcon = document.querySelector("#roundOneDoneIcon");
+                                  roundOneDoneIcon.style.display = 'block';
+                                  const roundOneText = document.querySelector("#roundOneText");
+                                  roundOneText.innerText = 'Done';   
+                                  const roundTwoCancelIcon = document.querySelector("#roundTwoCancelIcon");                                                           
+                                  roundTwoCancelIcon.style.display = 'block';        
+                                  const roundTwoText = document.querySelector("#roundTwoText");
+                                  roundTwoText.innerText = 'Not Done';                                                       
 
-                                              document.querySelector('#addDataBtn').addEventListener('click', (e) => {
-                                                    e.preventDefault()
-                                                    const roundToBeDone = 2
-                                                    sessionStorage.setItem("roundToBeDone", roundToBeDone) ;
-                                                    window.location = 'airtime-center-form'
-                                                     
-                                                    })
-                                        }
+                                  document.querySelector('#addDataBtn').addEventListener('click', (e) => {
+                                      e.preventDefault()
+                                      const roundToBeDone = 2
+                                      sessionStorage.setItem("roundToBeDone", roundToBeDone) ;
+                                      window.location = 'airtime-center-form'                                                     
+                                  })
+                              }
 
                                         if (round.roundStatus === '2'){
                                               displayMessage.innerHTML = " All rounds done, excellent."                                               

@@ -1,87 +1,77 @@
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+import { initFirebase } from './initFirebase.js'
 
-const apiKey = process.env.APIKEY
+async function getApiKey() {
 
-var firebaseConfig = {
-    apiKey: apiKey,
-    authDomain: "airtime-data-57cd2.firebaseapp.com",
-    projectId: "airtime-data-57cd2",
-    storageBucket: "airtime-data-57cd2.appspot.com",
-    messagingSenderId: "542127943927",
-    appId: "1:542127943927:web:5e6d713f2f221ca6dee3f2",
-    measurementId: "G-C4380R8QLQ"
-  };
-
-// Initialize Firebase
-firebase.initializeApp(firebaseConfig);
-firebase.analytics(); 
-
-//make auth and firestore references
-const auth = firebase.auth();
-firebase.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL);
-
-const db = firebase.firestore();
-db.settings({timestampsInSnapshots: true});
-
-// listen for auth status changes
-auth.onAuthStateChanged(user => {
-  if (user) {
-    console.log('onAuthStateChange - user logged in')
-    
-  } else {
-    console.log('onAuthStateChange - user logged out')
+  const response = await fetch('/apiKey')
+  if (!response.ok) {
+    const message = `An error has occured: ${response.status}`;
+    throw new Error(message);
   }
-})
+  const data = await response.json()
+  initFirebase(data.key)
+}
 
+getApiKey()
+
+// getting values from login gorm
 const loginForm = document.querySelector('#loginForm')
-
 loginForm.addEventListener('submit', (e) => {
 
     e.preventDefault()
     // get user info
     const email = loginForm['email'].value
     const password = loginForm['password'].value
+    
+    signInWithEmailAndPassword(email, password)
 
     setTimeout(() => {
       loginForm.reset()
-    }, 500)
-  
-   
+    }, 300)  
+})   
     //sign up user
     /*auth.signInWithEmailAndPassword(email, password).then(cred => {
     console.log(cred.user)
-    })*/
-  
+    })*/  
+
+function signInWithEmailAndPassword(email, password) {  
+    
+    const auth = firebase.auth();
     auth.signInWithEmailAndPassword(email, password)
         .then(({ user })=> {  
-          loginForm.querySelector('#errorMessage').innerText = 'loading...';       
-          return user.getIdToken().then((idToken) => {
-            const userEmail = `${user.email}`
-            console.log('e-mail is', userEmail)
+            loginForm.querySelector('#errorMessage').innerText = 'loading...';   
+            createSessionCookie(user)
+        }).catch(err => {
+          loginForm.querySelector('#errorMessage').innerText = err.code;
+        })         
+} 
+        
+
+function createSessionCookie(user) {
+
+    user.getIdToken().then((idToken) => {
+            const userEmail = `${user.email}`            
             const userId = `${user.uid}`
-            console.log('userId is', userId)
-            return fetch('/sessionLogin', {
+
+            fetch('/sessionLogin', {
               method: 'POST',
               headers: {
                 Accept: 'application/json',
                 'Content-Type': 'application/json',
                 'CSRF-Token': Cookies.get('XSRF-TOKEN'),
               },
-              body:JSON.stringify({ idToken, userEmail, userId }),              
-            })
-          })
-        })
-        .then(() => {
-          //console.log('firebase signout')
-          //return auth.signOut();
-        })
-        .then(() => {
-          console.log('window location')
-          window.location.assign('/index')  
-          //window.location = 'index' 
-        }).catch(err => {
-          loginForm.querySelector('#errorMessage').innerText = err.code;
-        })
-        return false;   
-})
+              body:JSON.stringify({ idToken, userEmail }),              
+            }).then((response) => {
+              if (response.ok) {
+                window.location.assign('/index') 
+              }
+              throw new Error('Something went wrong !')
+            }).catch(error => {
+              console.log(error)
+               loginForm.querySelector('#errorMessage').innerText = error;
+            }) 
+              
+    })
+
+}

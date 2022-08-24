@@ -1,7 +1,7 @@
 console.log("airtime-center-jscript.js");
 // Your web app's Firebase configuration
   // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-  var firebaseConfig = {
+/*  var firebaseConfig = {
     apiKey: apiKey,
     authDomain: "airtime-data-57cd2.firebaseapp.com",
     projectId: "airtime-data-57cd2",
@@ -12,9 +12,9 @@ console.log("airtime-center-jscript.js");
   };
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
-  firebase.analytics(); 
+  firebase.analytics(); */
   
-var db = firebase.firestore();
+let db = firebase.firestore();
 db.settings({timestampsInSnapshots: true});
 
 // Page Navigation
