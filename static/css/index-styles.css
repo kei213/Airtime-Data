@@ -139,7 +139,7 @@
 
 .roundStatusText {
 	font-size: 0.86rem;
-	/*color: red;*/
+	color: #a3a7ac;
 }
 
 .info-container {
@@ -163,7 +163,7 @@
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
-	background-color: #fefefe;	
+	background-color: #111111;	/*#fefefe*/
 	border:1px solid #1a1f24;
 }
 
@@ -185,16 +185,13 @@
 	font-family: 'Montserrat', sans-serif;
 	border: 1px solid #1a1f24;
 	border-radius: 2px;
-	color:#008387 !important;
+	/*color: red; /*#008387*/*/
 	font-weight: bold;	
 	padding: 0 0;
 	text-align: center;
 }
 
-.changeBkgroundBtn {
-	background-color: #008387;
-	/*border: 1px solid #a3a7ac;*/
-}
+
 
 .iconContainer {
 	width: 28%;
@@ -209,7 +206,7 @@
 	/*border:1px solid yellow;*/
 }
 
-.index-page-buttons p {
+.index-buttons-text {
 	width: 72%;
 	height: inherit;
 	/*border:1px solid green;*/
@@ -217,6 +214,17 @@
 	color: #5f6368;
 	padding-left: 14px;
 }
+
+.different-color {
+	color: black;
+}
+
+.changeBkgroundBtn {
+	background-color: #008387;
+	color: red;
+	/*border: 1px solid #a3a7ac;*/
+}
+
 .modal {
 	width: 90%; /* Full width */
     max-width: 500px;

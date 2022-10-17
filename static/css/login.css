@@ -1,3 +1,15 @@
+.login-header {
+  color: #8f9499;
+}
+
+.login-text {
+  color: #8f9499;
+}
+
+.input-text {
+  color: #8f9499;
+}
+
 .login-button {
 	width: 100%;
 	display: flex;
