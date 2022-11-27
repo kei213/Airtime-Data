@@ -2,15 +2,19 @@
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 import { initFirebase } from './initFirebase.js'
 
+// get apiKey from server
 async function getApiKey() {
-
+  console.log('getApikey called')
   const response = await fetch('/apiKey')
   if (!response.ok) {
     const message = `An error has occured: ${response.status}`;
     throw new Error(message);
   }
   const data = await response.json()
-  initFirebase(data.key)
+  const apiKey = data.key
+  //set apiKey to session storage
+  sessionStorage.setItem("apiKey", apiKey)
+  initFirebase(apiKey)
 }
 
 getApiKey()

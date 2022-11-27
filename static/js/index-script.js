@@ -1,5 +1,9 @@
 // Firebase configuration
+import { initFirebase } from './initFirebase.js'
 
+const apiKey = sessionStorage.getItem("apiKey")
+
+// initFirebase(apiKey)
 /*let apiKey = process.env.NODE_ENV
 
 let firebaseConfig = {

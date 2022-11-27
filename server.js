@@ -5,6 +5,7 @@ const csrf = require('csurf')
 const bodyParser = require('body-parser')
 const dotenv = require('dotenv').config()
 const apiRoutes = require('./routes/apiRoutes')
+const pageRoutes = require('./routes/pageRoutes')
 
 // setting up express server
 const app = express();
@@ -36,7 +37,7 @@ app.all('*', (req, res, next) => {
 })
 
 // api routes
-app.use('/api', apiRoutes)
+app.use('/', pageRoutes)
 
 // run express server
 app.listen(PORT, () => 

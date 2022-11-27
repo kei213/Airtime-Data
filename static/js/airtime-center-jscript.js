@@ -1,25 +1,16 @@
-console.log("airtime-center-jscript.js");
-// Your web app's Firebase configuration
-  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-/*  var firebaseConfig = {
-    apiKey: apiKey,
-    authDomain: "airtime-data-57cd2.firebaseapp.com",
-    projectId: "airtime-data-57cd2",
-    storageBucket: "airtime-data-57cd2.appspot.com",
-    messagingSenderId: "542127943927",
-    appId: "1:542127943927:web:5e6d713f2f221ca6dee3f2",
-    measurementId: "G-C4380R8QLQ"
-  };
-  // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
-  firebase.analytics(); */
-  
+console.log("airtime-center-script.js");
+// import { initFirebase } from './initFirebase.js'
+
+/*let apiKey = sessionStorage.getItem("apiKey")
+initFirebase(apiKey)*/
+const auth = firebase.auth();
+firebase.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL);
+
 let db = firebase.firestore();
 db.settings({timestampsInSnapshots: true});
 
 // Page Navigation
 function clickedButton(conditions, roundToBeDone) {
-
 	if (conditions === true){
 	  sessionStorage.setItem("roundToBeDone", roundToBeDone)
       window.location = 'welcome-form';
@@ -86,9 +77,7 @@ console.log('AC daystring is',dayString);
 let conditions = false;
 
 // function to clear modal
-
-function clearModal(instance) {	
-	
+function clearModal(instance) {		
 	console.log('clearModal')
 	console.log('instance', instance)
 	    instance.destroy();
