@@ -144,7 +144,7 @@ input[type=number]::-webkit-outer-spin-button {
   width: 7.8rem;
   height:2.8rem;
   text-align: center;
-  border: 1px solid #1a1f24;
+  border: 1px solid var(--primary-color); /*#1a1f24;*/
   border-radius: 30px;
   background-color: transparent;
   text-decoration: none;
@@ -200,4 +200,8 @@ input[type=number]::-webkit-outer-spin-button {
   background-color: #111111 ;
   filter: brightness(200%);
 
-}          
+}         
+
+.modal, .modal-footer {
+  background-color: var(--lighter-shade-black);
+} 

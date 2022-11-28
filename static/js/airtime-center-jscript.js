@@ -1,10 +1,7 @@
 console.log("airtime-center-script.js");
-// import { initFirebase } from './initFirebase.js'
 
-/*let apiKey = sessionStorage.getItem("apiKey")
-initFirebase(apiKey)*/
-const auth = firebase.auth();
-firebase.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL);
+/*const auth = firebase.auth();
+firebase.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL);*/
 
 let db = firebase.firestore();
 db.settings({timestampsInSnapshots: true});

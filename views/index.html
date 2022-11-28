@@ -17,6 +17,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap" rel="stylesheet">
 
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
     <title>airtime data</title> 
 
     <!-- The core Firebase JS SDK is always required and must be listed first -->
@@ -55,33 +57,36 @@
     <div class="roundDisplayDiv">
         <div class="round-display" onClick ='addButtonClick()'>  
           <span class=" round-text">Round 1</span>
-          <i class="material-icons notDoneIcon" id = "roundOneCancelIcon">  cancel_presentation</i>
-          <i class="material-icons doneIcon" id = "  roundOneDoneIcon">done</i>       
+          <i class="material-icons notDoneIcon" id = "roundOneCancelIcon">close</i>
+          <i class="material-icons doneIcon" id = "roundOneDoneIcon">done</i>       
           <span class = "roundStatusText" id = "roundOneText"></span>
         </div>
 
         <div class="round-display" onClick = 'addButtonClick()'>
           <span class=" round-text">Round 2</span>
-          <i class="material-icons notDoneIcon" id = "roundTwoCancelIcon">cancel_presentation</i>      
+          <i class="material-icons notDoneIcon" id = "roundTwoCancelIcon">close</i>      
           <i class="material-icons doneIcon" id = "roundTwoDoneIcon">done</i>
           <span class = "roundStatusText" id = "roundTwoText"></span>
         </div>      
     </div>
     
   
-    <div class = "info-container">    
+    <div class = "info-container">  
+        <span class="material-symbols-outlined">
+            info
+        </span>  
         <p class ="index-info-text" id = "display-message">Loading....<p>
     </div>
  
   <div class = "section-container">
       <div class="row"> 
           <div class="col s12">
-            <button data-target="modal1" class="waves-effect waves-light btn-small index-page-buttons changeBkgroundBtn modal-trigger"
+            <button data-target="modal1" class="waves-effect waves-light btn-small index-page-buttons modal-trigger"
             id="addDataBtn">
               <div class="iconContainer">
-                <img src = "img/plus.svg" class="different-color">
+                <img src = "img/plus.svg">
               </div>  
-              <p id = "addDataBtnText" class="index-buttons-text different-color">Add Data</p>
+              <p id = "addDataBtnText" class="index-buttons-text">Add Data</p>
              </button>
           </div>
       </div> 
@@ -99,7 +104,7 @@
 
        <div class="row ">           
             <div class="col s12">
-              <button class="waves-effect waves-light btn-small index-page-buttons modal-trigger" data-target="modal2" id = "viewRecords">
+              <button class="waves-effect waves-light btn-small index-page-buttons" data-target="modal2" id = "viewRecords">
                 <div class="iconContainer">
                   <img src = "img/table_view.svg"> 
                 </div>
@@ -110,7 +115,7 @@
 
       <div class="row ">           
             <div class="col s12">
-              <button class="waves-effect waves-light btn-small index-page-buttons modal-trigger" data-target="modal2" id = "phoneNumbers">
+              <button class="waves-effect waves-light btn-small index-page-buttons" data-target="modal2" id = "phoneNumbers">
                 <div class="iconContainer">
                   <img src = "img/simcard.svg">
                 </div>
@@ -134,17 +139,21 @@
       <!-- Modal Structure 2 -->
       <div id="modal2" class="modal">
         <div class="modal-content">
+            <div class = 'modal-close'>
+              <label for = 'modalClose'><label>
+              <p class="modal-close waves-effect waves-green btn-flat" id = 'modalClose'>X<p> 
+            <div>
             <!--<span class="close" id = "close">&times;</span> -->
 
-            <div class = "search-info-text">  
-            <i class="material-icons search-icon" >search</i>  
-            <span class = "search-heading">Search records by date</span>
+            <div class = "search-header-container">  
+                <i class="material-icons search-icon" >search</i>  
+                <span class = "search-heading">Search records by Date</span>
             </div>
 
             <div class = "day-selector">
-              <div class = "box"><h6><a href = "" id = "yesterdayLink">Yesterday</a></h6></div>
-              <div class = "box short"><div class="vl"></div></div>
-              <div class = "box"><h6><a href = "table">Today</a></h6></div>
+              <div class = "box"><a href = "" id = "yesterdayLink">Yesterday's Data</a></div>
+              <!--<div class = "box short"><div class="vl"></div></div>-->
+              <div class = "box"><a href = "table">Today's Data</a></div>
             </div> 
 
             <!--<hr></hr>-->
@@ -158,10 +167,7 @@
               <span class = "waves-effect waves-light btn-small searchButton" id = "search-button">SEARCH</span>
     
             </div>         
-            <div class = 'modal-close '>
-              <label for = 'modalClose'>Close<label>
-              <p class="modal-close waves-effect waves-green btn-flat" id = 'modalClose'>X<p> 
-            <div>
+            
         </div>
         
       </div>
