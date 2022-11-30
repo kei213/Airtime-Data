@@ -29,27 +29,19 @@
          https://firebase.google.com/docs/web/setup#available-libraries -->
     <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-analytics.js"></script>    
    
-    <link rel = "stylesheet" href = "css/main-styles.css"></link>       
-    <link rel = "stylesheet" href = "css/index-styles.css"></link> 
-    <link rel = "stylesheet" href = "css/search-modal-style.css"></link>  
+    <link rel = "stylesheet" href = "css/global.css"></link>       
+    <link rel = "stylesheet" href = "css/index.css"></link> 
+    <link rel = "stylesheet" href = "css/search-modal.css"></link>  
+    <link rel = "stylesheet" href = "css/navbar/Navbar.css"></link>
 
 </head>
 
 <body>
 
 <div class = "container main-container">
-    
-    <!--Navbar-->
-    <div class = "navbar">  
-        <span class = "app-name ">Airtime data</span>        
-        <div class = "heading-icon"><span class='dropdown-trigger' href='#' data-target='dropdown1'><i class = "material-icons">menu</i></span></div>
-        <!-- Dropdown Structure -->
-        <ul id='dropdown1' class='dropdown-content'>
-          
-          <li><a href="/sessionLogout" id = 'logout'><i class = "material-icons">logout</i>Log Out</a></li>
-        </ul>
-    </div>
-    <!--End Navbar-->
+
+     <navbar-component></navbar-component>
+
     <p class = 'user-display' id = 'userInfo'><p>
     <h5 class = "dayDisplay" id = "large-day-display"></h5>
     <p class = "dateDisplay" id = "date-display"></p>
@@ -142,12 +134,12 @@
             <div class = 'modal-close'>
               <label for = 'modalClose'><label>
               <p class="modal-close waves-effect waves-green btn-flat" id = 'modalClose'>X<p> 
-            <div>
+            </div>
             <!--<span class="close" id = "close">&times;</span> -->
 
             <div class = "search-header-container">  
                 <i class="material-icons search-icon" >search</i>  
-                <span class = "search-heading">Search records by Date</span>
+                <span class = "search-heading">Search records</span>
             </div>
 
             <div class = "day-selector">
@@ -177,7 +169,7 @@
 <!-- Compiled and minified JavaScript --> 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
-<script src = "/js/bundle.js" type="module"></script>
-<script src = "/js/index-script.js" type="module"></script>
+<script src = "/components/Navbar.js" type="module"></script>
+<script src = "/js/index.js" type="module"></script>
 </body>
 </html>

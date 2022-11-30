@@ -10,7 +10,7 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
      <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap" rel="stylesheet">
 
     <title>Table</title> 
 
@@ -22,9 +22,10 @@
          https://firebase.google.com/docs/web/setup#available-libraries -->
     <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-analytics.js"></script> 
 
-    <link rel = "stylesheet" href = "css/main-styles.css"></link>         
+    <link rel = "stylesheet" href = "css/global.css"></link>         
     <link rel = "stylesheet" href = "css/table-styles.css"></link>
     <link rel = "stylesheet" href = "css/search-page-styles.css"></link>  
+    <link rel = "stylesheet" href = "css/navbar/Navbar.css"></link>
 </head>
 
 <body>
@@ -34,21 +35,8 @@
     <span class = "loading-text">Working on it...</span>
     
   </div>
-
-  <!--Navbar-->  
-  <section class = "main-table">
-  
-    <div class = "navbar-main"> 
-        <a href = "/index" class = "navbar-icon" id = "navHomeIcon"><i class = "material-icons">home</i></a> 
-        <a href = "" data-target = "modal2" class = "navbar-icon modal-trigger"><i class = "material-icons">search</i></a> 
-        
-        <a href = "" class = "navbar-icon" id = "tableIcon"><i class = "material-icons">table_view</i></a>         
-        <!--<a href = "" class = "navbar-icon"><i class = "material-icons">menu</i></a>-->  
-                      
-    </div>
-    <!--end Navbar-->
-
-  	
+  <section class="main-table">
+  	<navbar-component></navbar-component>
     <!--<p class = "date-time" id = "text"></p>-->
     <div class = "table-header-text">
         <i class = "material-icons chevrons" id = "back-arrow">chevron_left</i> 
@@ -132,7 +120,7 @@
 
 <!-- Compiled and minified JavaScript -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-
+<script src = "/components/Navbar.js" type="module"></script>
 <script src = "js/table.js" type="module"></script>
 
 

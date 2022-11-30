@@ -1,7 +1,11 @@
-console.log("airtime-center-script.js");
+// Firebase configuration
+import { initFirebase } from './initFirebase.js'
 
-/*const auth = firebase.auth();
-firebase.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL);*/
+const apiKey = sessionStorage.getItem("apiKey")
+initFirebase(apiKey)
+//make auth and firestore references
+const auth = firebase.auth();
+firebase.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL);
 
 let db = firebase.firestore();
 db.settings({timestampsInSnapshots: true});
@@ -14,6 +18,10 @@ function clickedButton(conditions, roundToBeDone) {
     }
 
 };
+
+function home() {
+	console.log('home')
+}
 
 //UI class: Handles UI tasks
 

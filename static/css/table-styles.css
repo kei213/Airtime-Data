@@ -8,13 +8,13 @@
 
 }
 
-
 /*Table-CSS*/
 
 .loader {
+  height: 100vw;
   opacity:0;
   display: flex;
-  flex-direction: column;
+  
   justify-content: center;
   align-items: center;
   
@@ -25,6 +25,7 @@
   text-align: center;
   letter-spacing: 1px;
   font-size: 1.1rem;
+  color: var(--sexy-white);
 }
 
 .table-header-text {
@@ -42,11 +43,16 @@
 
 .chevrons {  
   border-radius: 50%;
+  -webkit-user-select: none;
+}
+
+.chevrons:active {
+  background-color: grey;
 }
 
 .chevrons:hover {
   cursor: pointer;
-  background-color: #2f2f2f;
+
 }
 
 .error-message {
@@ -59,7 +65,8 @@ tr {
   display: inline-flex;
   flex-direction: column;
   justify-content: space-between;
-  border-left: 1px solid #f2f2f2;
+  color: var(--mild-white);
+  /*border-left: 1px solid #f2f2f2;*/
 }
 
 td {
@@ -79,6 +86,11 @@ table {
     display: flex;
     flex-direction: row; 
     justify-content:initial;       
+}
+
+table.striped>tbody>tr:nth-child(odd) {
+    /*background-color: rgba(242,242,242,0.5);*/
+    background-color: var(--lighter-shade-black);
 }
 
 .table-text {

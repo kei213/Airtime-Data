@@ -2,16 +2,19 @@
 import { initFirebase } from './initFirebase.js'
 
 const apiKey = sessionStorage.getItem("apiKey")
+console.log(apiKey)
 
+if (apiKey == null) {
+  window.location = "/login"
+}
+
+initFirebase(apiKey)
 //make auth and firestore references
 const auth = firebase.auth();
 firebase.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL);
 
 const db = firebase.firestore();
 db.settings({timestampsInSnapshots: true});
-
-
-var main = document.querySelector(".main-container");
 
 // listen for auth status changes
 auth.onAuthStateChanged(user => {
@@ -22,7 +25,33 @@ auth.onAuthStateChanged(user => {
   } else {
     console.log('user logged out')
   }
-  })
+})
+
+
+let blurDate = {}
+let focusDate = {}
+
+window.addEventListener('focus', (event) => { 
+  focusDate = new Date()
+  const seconds = (focusDate.getTime() - blurDate.getTime()) / 1000;
+  console.log(seconds)
+  console.log(event)
+  if (seconds > 1800) {
+    location.reload();
+  }
+  const date = new Date();
+  console.log(date);
+  
+});
+
+window.addEventListener('blur', (event) => { 
+  console.log(event)
+  blurDate = new Date();
+  console.log(blurDate);
+  // location.reload();
+});
+
+var main = document.querySelector(".main-container");
 
 // logout user
 /*const logout = document.querySelector('#logout');
@@ -102,9 +131,10 @@ UI.showDayString(day, monthText, year);
 db.collection("Round")
         .where('dayString','==', `${dayString}`).get()
         .then(function(querySnapshot) {
-            const displayMessage = document.querySelector('#display-message');
+        console.log('querysnapshot', querySnapshot)    
 
-            if (querySnapshot.empty) {               
+            if (querySnapshot.empty) {    
+                const displayMessage = document.querySelector('#display-message');           
                 displayMessage.innerHTML = "please submit today's Round 1 amounts. Thanx..";
                 const addButton = document.querySelector("#addDataBtnText");
                 addButton.innerText = "Add Round 1 Data";
