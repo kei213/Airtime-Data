@@ -1,3 +1,12 @@
+.container {
+	/*this value is set at 92 cause 100 doesn work with mobile browser*/
+	height: 92vh;
+}
+
+.login-container {
+	display: block;
+}
+
 .login-header {
   color: #8f9499;
 }
@@ -24,4 +33,26 @@
 
 #loginForm {
 	margin-top: 1rem;
+}
+
+.error-message {
+	margin-top: 1rem;
+	color: var(--sexy-white);
+}
+
+.login-loader {
+	width: 100%;
+	height: 100%;
+	display: none;
+	/*border: 1px solid red;*/
+}
+
+.login-loader .text {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	/*border: 1px solid blue;*/
+	color: var(--sexy-white);
 }

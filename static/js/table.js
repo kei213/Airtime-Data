@@ -1,16 +1,15 @@
-console.log('table.js');
-
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
 import { initFirebase } from './initFirebase.js'
 
-let apiKey = sessionStorage.getItem("apiKey")
-initFirebase(apiKey)
+// verify firebase api key
+const apiKey = sessionStorage.getItem("apiKey")
+if (apiKey == null) {
+  window.location = "/login"
+}
 
-const db = firebase.firestore();
-db.settings({timestampsInSnapshots: true});
-
-//
+// Firebase configuration
+let firebase = initFirebase(apiKey)
+const db = firebase[0]
+const auth = firebase[1]
 
 
 const loader = document.querySelector(".loader");

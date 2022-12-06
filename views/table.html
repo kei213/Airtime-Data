@@ -16,7 +16,7 @@
 
     <!-- The core Firebase JS SDK is always required and must be listed first -->
     <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-app.js"></script>
-    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-firestore.js"></script>
     <!-- TODO: Add SDKs for Firebase products that you want to use
          https://firebase.google.com/docs/web/setup#available-libraries -->
@@ -24,7 +24,7 @@
 
     <link rel = "stylesheet" href = "css/global.css"></link>         
     <link rel = "stylesheet" href = "css/table-styles.css"></link>
-    <link rel = "stylesheet" href = "css/search-page-styles.css"></link>  
+    <link rel = "stylesheet" href = "css/search-modal.css"></link>  
     <link rel = "stylesheet" href = "css/navbar/Navbar.css"></link>
 </head>
 
@@ -114,13 +114,15 @@
     </div>
         
   </div>
-  
+  <!--search modal which pops up when called-->    
+  <search-component></search-component>
     
 </div>
 
 <!-- Compiled and minified JavaScript -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 <script src = "/components/Navbar.js" type="module"></script>
+<script src = "/components/Search.js" type="module"></script>
 <script src = "js/table.js" type="module"></script>
 
 

@@ -135,19 +135,3 @@ td {
 
 }
 
-.modal {
-  width: 90%; /* Full width */
-    max-width: 500px;
-    overflow: visible;
-    border: 1px solid #e2e2e2;
-    background-color: #161616;
-}
-
-/* Modal Content/Box */
-.modal-content{
-      
-      margin: auto; /* 15% from the top and centered */
-      padding: 2px;  
-
-
-    } 

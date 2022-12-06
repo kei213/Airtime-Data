@@ -1,5 +1,3 @@
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
 import { initFirebase } from './initFirebase.js'
 
 // get apiKey from server
@@ -16,10 +14,9 @@ async function getApiKey() {
   sessionStorage.setItem("apiKey", apiKey)
   initFirebase(apiKey)
 }
-
 getApiKey()
 
-// getting values from login gorm
+// getting values from login form
 const loginForm = document.querySelector('#loginForm')
 loginForm.addEventListener('submit', (e) => {
 
@@ -44,10 +41,13 @@ function signInWithEmailAndPassword(email, password) {
     const auth = firebase.auth();
     auth.signInWithEmailAndPassword(email, password)
         .then(({ user })=> {  
-            loginForm.querySelector('#errorMessage').innerText = 'loading...';   
+            const loginContainer = document.querySelector(".login-container") ;
+            const loginLoader = document.querySelector(".login-loader") ;
+            loginContainer.style.display = 'none';
+            loginLoader.style.display = 'block';   
             createSessionCookie(user)
         }).catch(err => {
-          loginForm.querySelector('#errorMessage').innerText = err.code;
+          loginForm.querySelector('#errorMessage').innerText = `${err.code}, try again`;
         })         
 } 
         
@@ -70,7 +70,6 @@ function createSessionCookie(user) {
               if (response.ok) {
                 window.location.assign('/index') 
               }
-              throw new Error('Something went wrong !')
             }).catch(error => {
               console.log(error)
                loginForm.querySelector('#errorMessage').innerText = error;

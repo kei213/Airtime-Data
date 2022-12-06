@@ -1,5 +1,5 @@
 export function initFirebase(apiKey) {
-
+  console.log('initfirebase')
   let firebaseConfig = {
       apiKey: apiKey,
       authDomain: "airtime-data-57cd2.firebaseapp.com",
@@ -14,4 +14,22 @@ export function initFirebase(apiKey) {
   firebase.initializeApp(firebaseConfig);
   firebase.analytics(); 
 
+  //make auth and firestore references
+  const auth = firebase.auth();
+  firebase.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL);
+
+  const db = firebase.firestore();
+  db.settings({timestampsInSnapshots: true}); 
+  
+  return [db, auth]
 }
+
+
+// logout user
+/*const logout = document.querySelector('#logout');
+logout.addEventListener('click', (e) => {
+  e.preventDefault();
+  auth.signOut().then(() => {
+    console.log('user signed out')
+  })
+})*/

@@ -10,7 +10,7 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
      <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-
+    
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -73,7 +73,7 @@
   <div class = "section-container">
       <div class="row"> 
           <div class="col s12">
-            <button data-target="modal1" class="waves-effect waves-light btn-small index-page-buttons modal-trigger"
+            <button data-target="add-data-btn-modal" class="waves-effect waves-light btn-small index-page-buttons modal-trigger"
             id="addDataBtn">
               <div class="iconContainer">
                 <img src = "img/plus.svg">
@@ -85,7 +85,7 @@
 
       <div class="row ">           
             <div class="col s12">
-              <button class="waves-effect waves-light btn-small index-page-buttons modal-trigger" data-target="modal2" id = "dateSearch">
+              <button class="waves-effect waves-light btn-small index-page-buttons modal-trigger" data-target="search-modal" id = "dateSearch">
                 <div class="iconContainer">
                   <img src = "img/database-search-outline.svg">  
                 </div>
@@ -115,10 +115,12 @@
               </button>
           </div>  
       </div> 
-           
 
-      <!--Modal Structure 1--> 
-      <div id="modal1" class="modal no-border">
+      <!--search modal which pops up when called-->    
+      <search-component></search-component>
+      
+      <!--Add Data button modal which pops up when all rounds have been submitted--> 
+      <div id="add-data-btn-modal" class="modal no-border">
         <div class="modal-content">
           <h4>Info</h4>
           <p>All of todays data has been submitted</p>
@@ -127,49 +129,14 @@
           <a href="#!" class="modal-close waves-effect waves-green btn-flat">OK</a>
         </div>
       </div>
-
-      <!-- Modal Structure 2 -->
-      <div id="modal2" class="modal">
-        <div class="modal-content">
-            <div class = 'modal-close'>
-              <label for = 'modalClose'><label>
-              <p class="modal-close waves-effect waves-green btn-flat" id = 'modalClose'>X<p> 
-            </div>
-            <!--<span class="close" id = "close">&times;</span> -->
-
-            <div class = "search-header-container">  
-                <i class="material-icons search-icon" >search</i>  
-                <span class = "search-heading">Search records</span>
-            </div>
-
-            <div class = "day-selector">
-              <div class = "box"><a href = "" id = "yesterdayLink">Yesterday's Data</a></div>
-              <!--<div class = "box short"><div class="vl"></div></div>-->
-              <div class = "box"><a href = "table">Today's Data</a></div>
-            </div> 
-
-            <!--<hr></hr>-->
-
-            <div class = "input-field-search-container">                  
-              <div class = "calendar">
-                <!--<label for="calendarIcon">pick a date:</label>-->
-                <i class="material-icons " id = "calendarIcon" style = "color: #8f9499">date_range</i>
-                <input type = "text" placeholder = "pick a date" class="datepicker" id = "date-input">
-              </div>             
-              <span class = "waves-effect waves-light btn-small searchButton" id = "search-button">SEARCH</span>
-    
-            </div>         
-            
-        </div>
-        
-      </div>
+      
   </div><!--close section-container-->  
 </div>
 
-<!-- Compiled and minified JavaScript --> 
+<!-- Compiled and minified JavaScript -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-
 <script src = "/components/Navbar.js" type="module"></script>
+<script src = "/components/Search.js" type="module"></script>
 <script src = "/js/index.js" type="module"></script>
 </body>
 </html>

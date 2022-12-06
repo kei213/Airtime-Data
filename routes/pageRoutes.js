@@ -27,7 +27,7 @@ router.get('/apiKey', (req, res) => {
 })
 
 router.get('/index', (req, res) => {
-	console.log('/index')
+	
 	const sessionCookie = req.cookies.session || '';	
     
 	admin.auth()
