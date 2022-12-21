@@ -1,6 +1,8 @@
 const admin = require("firebase-admin")
 const dotenv = require('dotenv').config()
 
+const { privateKey } = JSON.parse(process.env.PRIVATEKEY);
+
 // initialise firebase
 const initFirebase = () => {
 	admin.initializeApp({
@@ -8,7 +10,7 @@ const initFirebase = () => {
 	  	"type": "service_account",
 	    "project_id": "airtime-data-57cd2",
 	    "private_key_id": "29fe0a6ee95c38383992f9d6b78f793cd858efdd",
-	    "private_key": process.env.PRIVATEKEY,
+	    "private_key": privateKey,
 	    "client_email": "firebase-adminsdk-qlnu9@airtime-data-57cd2.iam.gserviceaccount.com",
 	    "client_id": "110265252860779626864",
 	    "auth_uri": "https://accounts.google.com/o/oauth2/auth",
